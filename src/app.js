@@ -76,7 +76,25 @@ app.post("/tweets", async (req, res) => {
     catch (err){
         res.status(httpStatus.INTERNAL_SERVER_ERROR).send(err.message);
     } 
-    
+});
+
+app.get('/tweets', async (req, res) => { 
+    try { 
+        const tweets = await db.collection("tweets").find().toArray();
+        const users = await db.collection("users").find().toArray();
+        tweets.reverse();
+        const tweetsToShow = tweets.map(tweet => {
+            const usuario = users.find(user => user.username === tweet.username);
+            return {
+                ...tweet,
+                avatar: usuario.avatar
+            };
+        });
+        res.send(tweetsToShow).status(httpStatus.OK);
+    }
+    catch (err){
+        res.status(httpStatus.INTERNAL_SERVER_ERROR).send(err.message);
+    } 
 });
 
 
