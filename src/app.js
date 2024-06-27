@@ -24,8 +24,12 @@ mongoClient.connect()
 
 // Schemas
 const userSchema = joi.object({
-     username: joi.string().required().trim(),
-     avatar: joi.string().required().trim()
+    username: joi.string().required().trim(),
+    avatar: joi.string().required().trim()
+});
+const tweetSchema = joi.object({
+    username: joi.string().required(),
+    tweet: joi.string().required()
 });
 
 
@@ -49,6 +53,30 @@ app.post('/sign-up', async (req, res) => {
     catch (err){
         res.status(httpStatus.INTERNAL_SERVER_ERROR).send(err.message);
     } 
+});
+
+app.post("/tweets", async (req, res) => {
+    const { username, tweet } = req.body;
+    const validation = tweetSchema.validate(req.body, { abortEarly: false });
+
+    if (validation.error) {
+        const errors = validation.error.details.map((detail) => detail.message);
+        return res.status(httpStatus.UNPROCESSABLE_ENTITY).send(errors);
+    }
+
+    try { 
+        const authorized = !!await db.collection("users").findOne({ username });
+        if (!authorized) return res.sendStatus(httpStatus.UNAUTHORIZED);
+        await db.collection("tweets").insertOne({
+            username,
+            tweet
+        });
+        res.sendStatus(httpStatus.CREATED);
+    }
+    catch (err){
+        res.status(httpStatus.INTERNAL_SERVER_ERROR).send(err.message);
+    } 
+    
 });
 
 
