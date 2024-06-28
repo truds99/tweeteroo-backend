@@ -17,11 +17,11 @@ The following tools and frameworks were used in the construction of the project:
 <p align="center">
     <img style='margin: 5px;' src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white" height="40" alt="Node.js logo" />
     <img style='margin: 5px;' src="https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white" height="40" alt="Express logo" />
+    <img style='margin: 5px;' src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white" height="40" alt="MongoDB logo" />
+    <img style='margin: 5px;' src="https://img.shields.io/badge/Joi-336699?style=for-the-badge&logo=auth0&logoColor=white" height="40" alt="Joi logo" />
     <img style='margin: 5px;' src="https://img.shields.io/badge/Cors-FF6F91?style=for-the-badge&logo=cors&logoColor=white" height="40" alt="Cors logo" />
     <img style='margin: 5px;' src="https://img.shields.io/badge/HTTP_Status-5D5D5D?style=for-the-badge&logo=http-status&logoColor=white" height="40" alt="HTTP Status logo" />
     <img style='margin: 5px;' src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" height="40" alt="JavaScript logo" />
-    <img style='margin: 5px;' src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white" height="40" alt="MongoDB logo" />
-    <img style='margin: 5px;' src="https://img.shields.io/badge/Joi-336699?style=for-the-badge&logo=auth0&logoColor=white" height="40" alt="Joi logo" />
 </p>
 
 ## Getting Started
