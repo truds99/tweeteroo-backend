@@ -9,12 +9,6 @@ This project is a Node.js API for a Twitter clone application using MongoDB. It 
 - Fetch Tweets: Retrieve tweets from the database, including support for fetching individual tweets or all tweets in reverse chronological order.
 - Edit Tweets: Enable users to edit their existing tweets.
 - Delete Tweets: Allow users to delete their tweets.
-Endpoints
-POST /sign-up: Register a new user.
-POST /tweets: Post a new tweet.
-GET /tweets: Get all tweets.
-PUT /tweets/:id: Edit a tweet by ID.
-DELETE /tweets/:id: Delete a tweet by ID.
 
 ## Getting Started
 
@@ -33,29 +27,35 @@ The following tools and frameworks were used in the construction of the project:
 
 </p>
 
-## How to run
+## Installation
 
 ### 1. Clone the Repository
 
 ```bash
-git clone <REPOSITORY_URL>
+git clone https://github.com/truds99/tweeteroo-backend.git
+cd tweeteroo-backend
 ```
 
-### 2. Navigate to the Project Directory
-
-```bash
-cd <PROJECT_DIRECTORY_NAME>
-```
-
-### 3. Install Project Dependencies
+### 2. Install Project Dependencies
 
 ```bash
 npm install
 ```
 
-### 4. Start the Server
+### 3. Set up environment variables
+
+```bash
+MONGODB_URI=your_mongodb_uri
+PORT=your_port_number
+```
+
+### 3. Start the server
 
 ```bash
 npm start
 ```
-This will start the server at http://localhost:5000.
+## Usage
+Use tools like Postman or cURL to interact with the API endpoints. Make sure your MongoDB instance is running and accessible.
+
+## Contributions
+Contributions are welcome! Please fork the repository and submit a pull request for any improvements or new features.
