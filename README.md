@@ -10,12 +10,6 @@ This project is a Node.js API for a Twitter clone application using MongoDB. It 
 - Edit Tweets: Enable users to edit their existing tweets.
 - Delete Tweets: Allow users to delete their tweets.
 
-## Getting Started
-
-Prerequisites
-- Node.js
-- MongoDB
-
 ## Technologies
 The following tools and frameworks were used in the construction of the project:<br>
 <p>
@@ -26,6 +20,12 @@ The following tools and frameworks were used in the construction of the project:
     <img style='margin: 5px;' src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" height="40" alt="JavaScript logo" />
 
 </p>
+
+## Getting Started
+
+Prerequisites
+- Node.js
+- MongoDB
 
 ## Installation
 
@@ -43,6 +43,8 @@ npm install
 ```
 
 ### 3. Set up environment variables
+
+Create a .env file in the root directory and add your MongoDB URI and any other necessary configuration.
 
 ```bash
 MONGODB_URI=your_mongodb_uri
