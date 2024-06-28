@@ -14,7 +14,7 @@ This project is a Node.js API for a Twitter clone application using MongoDB. It 
 The following tools and frameworks were used in the construction of the project:<br>
 <p>
     
-<p align="center">
+<p>
     <img style='margin: 5px;' src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white" height="40" alt="Node.js logo" />
     <img style='margin: 5px;' src="https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white" height="40" alt="Express logo" />
     <img style='margin: 5px;' src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white" height="40" alt="MongoDB logo" />
