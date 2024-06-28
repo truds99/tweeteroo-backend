@@ -119,6 +119,20 @@ app.put("/tweets/:id", async (req, res) => {
     } 
 });
 
+app.delete("/tweets/:id", async (req, res) => {
+    const { id } = req.params;
+   
+    try { 
+        const tweetToDelete = await db.collection("tweets").findOne({ _id: new ObjectId(id) });
+        if (!tweetToDelete) return res.sendStatus(httpStatus.NOT_FOUND);
+        await db.collection("tweets").deleteOne({ _id: new ObjectId(id) });
+        res.sendStatus(httpStatus.NO_CONTENT);
+    }
+    catch (err){
+        res.status(httpStatus.INTERNAL_SERVER_ERROR).send(err.message);
+    } 
+});
+
 
 // PORT
 const port = process.env.PORT || 5000;
