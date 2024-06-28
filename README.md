@@ -6,7 +6,7 @@ This project is a Node.js API for a Twitter clone application using MongoDB. It 
 
 - User Registration: Create new user accounts with unique usernames and other details.
 - Tweet Posting: Allow registered users to post new tweets.
-- Fetch Tweets: Retrieve tweets from the database, including support for fetching individual tweets or all tweets in reverse chronological order.
+- Fetch Tweets: Retrieve tweets from the database.
 - Edit Tweets: Enable users to edit their existing tweets.
 - Delete Tweets: Allow users to delete their tweets.
 
