@@ -1,7 +1,7 @@
 import express, { json } from "express";
 import cors from 'cors';
 import dotenv from "dotenv";
-import { MongoClient } from "mongodb";
+import { MongoClient, ObjectId } from "mongodb";
 import httpStatus from "http-status";
 import joi from "joi";
 
@@ -91,6 +91,30 @@ app.get('/tweets', async (req, res) => {
             };
         });
         res.send(tweetsToShow).status(httpStatus.OK);
+    }
+    catch (err){
+        res.status(httpStatus.INTERNAL_SERVER_ERROR).send(err.message);
+    } 
+});
+
+app.put("/tweets/:id", async (req, res) => {
+    const { username, tweet } = req.body;
+    const { id } = req.params;
+    const validation = tweetSchema.validate(req.body, { abortEarly: false });
+
+    if (validation.error) {
+        const errors = validation.error.details.map((detail) => detail.message);
+        return res.status(httpStatus.UNPROCESSABLE_ENTITY).send(errors);
+    }
+
+    try { 
+        const authorized = !!await db.collection("users").findOne({ username });
+        if (!authorized) return res.sendStatus(httpStatus.UNAUTHORIZED);
+
+        const tweetToEdit = await db.collection("tweets").findOne({ _id: new ObjectId(id) });
+        if (!tweetToEdit) return res.sendStatus(httpStatus.NOT_FOUND);
+        await db.collection("tweets").updateOne({ _id: new ObjectId(id) }, { $set: req.body });
+        res.sendStatus(httpStatus.NO_CONTENT);
     }
     catch (err){
         res.status(httpStatus.INTERNAL_SERVER_ERROR).send(err.message);
