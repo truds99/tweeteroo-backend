@@ -108,11 +108,9 @@ app.put("/tweets/:id", async (req, res) => {
     }
 
     try { 
-        const authorized = !!await db.collection("users").findOne({ username });
-        if (!authorized) return res.sendStatus(httpStatus.UNAUTHORIZED);
-
         const tweetToEdit = await db.collection("tweets").findOne({ _id: new ObjectId(id) });
         if (!tweetToEdit) return res.sendStatus(httpStatus.NOT_FOUND);
+        if (username !== tweetToEdit.username) return res.sendStatus(httpStatus.UNAUTHORIZED);
         await db.collection("tweets").updateOne({ _id: new ObjectId(id) }, { $set: req.body });
         res.sendStatus(httpStatus.NO_CONTENT);
     }
